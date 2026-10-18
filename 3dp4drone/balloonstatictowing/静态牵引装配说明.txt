@@ -1,0 +1,17 @@
+静态牵引版装配说明（2026-10-18 文档核对）
+
+主装配：holydrone_static_towing_v1.sldasm；配置 STATIC_TOWING_NOHOST。
+基于 NX 版结构独立装配，ORIN NX、nxholder_Part1、nxholder_Part2 压缩。
+
+本目录组件：
+1. bolloon holder.SLDPRT：顶部支架，现位于本目录；同目录保留 STL。
+2. 气球托v4 4.2mm.STL：原始输入网格，按毫米导入为 balloon_cup_v4_4p2_imported.SLDPRT。
+3. static_carbon_rod_D4_L300_assumed.SLDPRT：碳棒示意；模型直径 4 mm、长度 300 mm，与维护者确认规格一致。文件名 assumed 为历史标识，尚无实物测量照片记录。
+4. static_adapter_OD6_ID4p2_L71p5.SLDPRT：开缝衬套，外径 6 mm、内径 4.2 mm、长度 71.5 mm，适配顶部支架原 6 mm 孔与 4 mm 碳棒。当前未提供独立 STL，制作工艺待实物确认。
+5. 气球包络引用 ../balloontowing/11_Balloon_D50_Envelope.SLDPRT，当前球体几何直径 150 mm；旧 D50 名称保留以维持引用，不是打印件。
+
+既有建模记录：顶部支架底面贴机架顶板，轴线 X=11.686532362 mm、Y=64.072173124 mm；碳棒与气球托的插入关系按原装配保留。具体安装尺寸以打开当前总装测量为准。
+机架绑带、夹紧/粘接工艺和实物气球固定方式需要按实际落实；本次已确认气球包络存在，不应再写“气球本体未建模”。
+
+2026-10-18 只读检查：上述组件启用，NX 与两件支架压缩；当前配置启用组件路径均存在；模型碳棒包围盒 4×4×300 mm，共享气球包围盒 150×150×150 mm。
+本次未保存 CAD，未完成完整干涉、配合求解、强度、打印件尺寸或飞行验证。实物照片待补，不将 CAD 渲染作为实物展示。

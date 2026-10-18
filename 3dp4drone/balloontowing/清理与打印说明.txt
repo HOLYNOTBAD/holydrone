@@ -1,0 +1,17 @@
+拖曳打印说明（2026-10-18 文档核对）
+主装配：根目录 holydrone_towing_v1.SLDASM。
+当前组件直接引用本目录，不再依赖旧根目录 balloontowing 子装配。
+
+STL_打印件 仅含以下四种打印件，单位毫米：
+05_Balloon50_QuickTie_Ballast.stl：气球快拆托。
+30_Hinge_RootFillets.stl：铰座。
+31_Clamp_Rounded.stl：碳管夹座。
+32_BatteryHolder_MountReady.stl：改装电池托。
+
+04_External_Line_Guide、21_Short_GroundSupport 与拖曳紧固件示意不在当前主装配两个配置中；共用 Hardware 紧固件仍保留。
+碳管、转轴套筒、气球包络、棉线属于采购/示意模型，不列入打印件。03 文件名含 BoreAssumed，其内径为建模假设，采购前需确认。
+11_Balloon_D50_Envelope.SLDPRT 的当前球体直径为 150 mm，文件名 D50 为历史名称；静态牵引版也共用此包络。
+05 文件保留 Balloon50 历史命名，不因气球包络直径变化而自动证明适配性；实物固定仍需试装。
+
+GROUND_0deg 配置棉线压缩，AIRBORNE_90deg 配置棉线启用。2026-10-18 独立只读检查两个配置的启用组件路径均存在。
+旧记录曾提及 version_backups/removed_guide_support_files_20261018 归档；本次未在仓库根目录发现 version_backups，不据旧记录声称归档仍可下载。本次未删除用户文件或保存 CAD。

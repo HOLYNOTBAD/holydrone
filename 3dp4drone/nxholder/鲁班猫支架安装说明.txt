@@ -1,0 +1,18 @@
+﻿鲁班猫4底板六孔机载支架（USB朝前版）
+
+总装：C:\Users\13021\Desktop\holydrone\holydrone_lbc4_v1.SLDASM
+支架：nxholder_Part2-rk3588lbc4.SLDPRT，配套STEP和STL已同步更新。
+原配底板、散热器和风扇完整保留，装配采用LubanCat4_with_bottom_tray.SLDPRT。
+USB接口朝飞机前方，即摄像头一侧；支架坐标+X方向为前方。
+机架接口保持原安装位置和60×40 mm的四个直径3.4 mm孔。
+底板固定接口：六孔，两排间距55 mm；每排三孔，孔距7.5 mm。
+支架孔中心坐标：X=±27.5 mm，Y=-7.5、0、+7.5 mm。
+底板原孔径3.3 mm，支架采用直径3.4 mm的M3间隙孔。
+支架上表面Z=2 mm，六柱接触面Z=10 mm，底板下方净空8 mm。
+底板底面与六柱接触面齐平，板卡和支架采用锁定配合。
+支架约72×52×14.2 mm，STL单位毫米。
+六个固定点使用M3贯穿螺钉；长度按实物底板、垫片、螺母和打印件试装选定。
+六孔图案具有180度对称性，实际装配时请对照摄像头一侧确认USB朝向。
+
+上一版总装及支架备份在version_backups\lbc4_before_usb_front_tray6。
+孔位、单实体和装配高度验证记录见tray6_validation.txt。

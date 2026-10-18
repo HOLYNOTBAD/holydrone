@@ -1,0 +1,56 @@
+整理前说明文本快照（2026-10-18）
+以下内容从本次修改前读取的三份说明中保留，用于追溯旧路径、假设与历史修复记录；不是当前装配/采购依据，也不是 CAD 备份。当前状态见根 README 和 docs/SOURCES.md。
+
+===== 原 装配版本说明.txt =====
+无人机装配版本说明
+目录：C:\Users\13021\Desktop\holydrone
+
+holydrone_nx_v1.SLDASM
+原始NX上位机版本，保留ORIN NX及原安装支架。
+
+holydrone_lbc4_v1.SLDASM
+鲁班猫4版本，原ORIN NX压缩，启用鲁班猫4原生模型和重新设计的安装支架。
+支架沿用原安装位置和机架连接孔位，板卡与支架用锁定配合连接。
+鲁班猫模型：modules\LubanCat4\LubanCat4_with_bottom_tray.SLDPRT。
+新支架：3dp4drone\nxholder\nxholder_Part2-rk3588lbc4.SLDPRT。
+保留原配底板、散热器、风扇与板上元件；支架通过底板六个安装孔固定。USB接口朝飞机前方（摄像头一侧，机架+X方向）。底板六孔为55 mm排距、7.5 mm孔距，原孔径3.3 mm，支架孔径3.4 mm。
+
+holydrone_towing_v1.SLDASM
+拖曳版本，不启用上位机；NX及两件专用支架均压缩。
+使用独立子装配：balloontowing\holydrone_mount_ready_nohost_v1.SLDASM。
+这不会改变NX版或鲁班猫版的上位机状态。
+
+旧文件名归档位置：version_backups\before_20261017_naming。
+holydrone_v1_NoProp.SLDASM维持原状。
+
+验证：三种版本的有效上位机组件状态正确，未发现缺失的组件文件。
+新加鲁班猫固定配合求解成功。
+2026-10-17 后续修复：原电池托及拖曳版电池托的失效草图平面、外部关系和切除作用实体引用已修复；重合82、距离6、距离7的连带配合报错已随重建消除。保留原草图坐标，移除不与实体相交的旧切除11并保留其草图。拖曳版侧面加厚块通过上下连接桥与电池托合并为一个实体，安装孔位置保留。
+本次检查不等于整机飞行载荷、完整碰撞或振动验证。
+
+===== 原 balloonstatictowing/静态牵引装配说明.txt =====
+holydrone_static_towing_v1.sldasm
+位置：C:\Users\13021\Desktop\holydrone
+基于 holydrone_nx_v1.SLDASM 独立复制，配置 STATIC_TOWING_NOHOST。
+ORIN NX、nxholder_Part1、nxholder_Part2 在本装配体内压缩。
+顶部装入 3dp4drone\balloonstatictowing\bolloon holder.SLDPRT。
+气球托由同目录“气球托v4 4.2mm.STL”按毫米导入，保存为 balloon_cup_v4_4p2_imported.SLDPRT；未修改原 STL。
+碳棒：static_carbon_rod_D4_L300_assumed.SLDPRT，暂定直径4 mm、长度300 mm。
+原支架夹孔直径6 mm，新增开缝衬套 static_adapter_OD6_ID4p2_L71p5.SLDPRT，外径6 mm、内径4.2 mm、长度71.5 mm。
+支架底面贴机架顶板上表面（Z=79.4638717547 mm），轴线X=11.686532362 mm、Y=64.072173124 mm。
+碳棒在支架内从局部Z=3.5 mm起向上300 mm，气球托底部套入碳棒顶端30 mm，气球托开口朝上。
+四个新增组件以固定位置装配。机架安装绑带、夹紧/粘接工艺及气球本体未建模；支架有绑带槽，实际固定方式需按实物落实。
+检查：保存成功（错误0、警告0）；引用文件检查通过；四个新增组件均启用并固定；上位机和两件支架均压缩。
+本次为几何装配，未完成全机干涉、强度和飞行验证。原机已有电池托与部分配合/外部引用问题沿用。
+
+===== 原 balloontowing/清理与打印说明.txt =====
+拖曳打印说明（2026-10-18更新）
+主装配：C:\Users\13021\Desktop\holydrone\holydrone_towing_v1.SLDASM
+本目录的STL_打印件仅保留4种打印件，单位毫米：
+05_Balloon50_QuickTie_Ballast.stl 气球快拆托
+30_Hinge_RootFillets.stl 铰座
+31_Clamp_Rounded.stl 碳管夹座
+32_BatteryHolder_MountReady.stl 改装电池托
+04_External_Line_Guide与21_Short_GroundSupport已从主装配体全部配置移除，对应SLDPRT与STL均已移出工作目录，归档于version_backups\removed_guide_support_files_20261018。
+紧固件示意组件此前已移除。碳管、转轴套筒、气球包络和棉线仍保留装配引用，不列入打印件。
+两个配置GROUND_0deg与AIRBORNE_90deg保存检查通过，无缺失组件文件。

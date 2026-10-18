@@ -1,0 +1,16 @@
+无人机装配版本说明（2026-10-18 文档核对）
+
+四种有效主装配体：
+holydrone_nx_v1.SLDASM：ORIN NX 与 nxholder_Part1、nxholder_Part2 启用。
+holydrone_lbc4_v1.SLDASM：ORIN NX 压缩，启用 modules/LubanCat4/LubanCat4_with_bottom_tray.SLDPRT 和 3dp4drone/nxholder/nxholder_Part2-rk3588lbc4.SLDPRT，保留 nxholder_Part1。
+holydrone_static_towing_v1.sldasm：STATIC_TOWING_NOHOST 配置，NX 与两件专用支架压缩；竖直 4×300 mm 碳棒、6→4.2 mm 衬套、顶部支架、气球托和 150 mm 气球包络启用。
+holydrone_towing_v1.SLDASM：GROUND_0deg、AIRBORNE_90deg 配置，NX 与两件专用支架压缩。拖曳零件直接装入总装，当前路径为 3dp4drone/balloontowing/，不再使用旧 balloontowing/holydrone_mount_ready_nohost_v1.SLDASM 子装配路径。
+
+鲁班猫版保留底板、散热器、风扇和板上元件；USB 朝摄像头一侧。支架接口与孔位参见 3dp4drone/nxholder/鲁班猫支架安装说明.txt、tray6_validation.txt。
+拖曳版棉线在 GROUND_0deg 压缩、AIRBORNE_90deg 启用。STL_打印件当前仅 05/30/31/32 四件；04 导线嘴、21 地面支撑与拖曳紧固件示意不在当前装配中。共用 Hardware 紧固件子装配仍启用。
+气球包络文件名 11_Balloon_D50_Envelope.SLDPRT 保留历史名称，当前几何直径 150 mm，两种牵引版共用。
+
+核查：2026-10-18 使用 SolidWorks 2024 独立只读会话读取，四机型五个配置的启用组件路径均存在。清单见 docs/data/assembly-components.tsv。只读打开警告码 32（需要重建），无打开错误；本次未保存 CAD。配置切换会在内存中产生修改标记，不代表磁盘文件发生修改。
+历史记录曾描述电池托/配合修复；本次没有重新验证全部配合、碰撞、强度、打印网格同步或飞行载荷。
+旧说明提到的 version_backups 归档目录本次未在仓库根目录发现；历史文件名不列为有效机型。
+公开说明、展示素材和来源状态以 README.md、docs/PARTS.md、docs/SOURCES.md 为入口。

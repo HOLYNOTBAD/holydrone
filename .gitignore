@@ -1,0 +1,8 @@
+# SolidWorks session locks and local recovery files (keep actual design files).
+~$*
+*.swar
+Thumbs.db
+.DS_Store
+
+# Local design recovery archives.
+version_backups/

@@ -1,0 +1,19 @@
+Removed old board lock: 锁定1
+USB forward: +X, same side as front camera
+New lock mate solved, code=1
+Six-hole bore center mm: 27.5, 7.5
+Six-hole bore center mm: 27.5, 0
+Six-hole bore center mm: 27.5, -7.5
+Six-hole bore center mm: -27.5, 7.5
+Six-hole bore center mm: -27.5, 0
+Six-hole bore center mm: -27.5, -7.5
+Six-hole cylindrical faces count=6
+Full board including bottom tray bodies=176
+Tray minimum Z in holder coordinates mm=10
+Holder max Z mm=10
+Tray-to-base clearance mm=8; six tray hole axes align with bracket holes
+Board local transform=-1,0,0,0,-1,0,0,0,1,-0.034815074817548,0.011849575524768,0.0205,1,0,0,0
+Saved holydrone_lbc4_v1.SLDASM errors=0 warnings=0
+STL triangles=4038 nonmanifold_or_boundary_edges=0 min_mm=0.0103041529655457 0.0011492520570755 0 max_mm=71.9896926879883 51.998851776123 14.1999998092651
+
+Final actual placement max matrix difference=1.38777878078145E-17; all assembly references local; save errors=0 warnings=0

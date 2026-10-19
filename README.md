@@ -13,31 +13,23 @@
 | [holydrone_static_towing_v1.sldasm](Hardware/holydrone_static_towing_v1.sldasm) | 静态牵引版 | `STATIC_TOWING_NOHOST`；压缩 NX 及两件专用支架；增加竖直碳棒、衬套、顶部支架、气球托和气球包络 |
 | [holydrone_towing_v1.SLDASM](Hardware/holydrone_towing_v1.SLDASM) | 可转动拖曳版 | `GROUND_0deg` / `AIRBORNE_90deg`；无上位机，含铰座、夹座、改装电池托和拖曳杆；棉线仅在空中配置启用 |
 
-### ORIN NX 版
+### 上位机版本
 
-![ORIN NX 版真实 CAD 几何的分层爆炸动画](demo/holydrone_nx_v1-explode.gif)
-
-[装配静态预览](demo/holydrone_nx_v1-assembled.png) · [展开静态预览](demo/holydrone_nx_v1-exploded.png)
-
-### 鲁班猫 4 版
-
-![鲁班猫 4 版真实 CAD 几何的分层爆炸动画](demo/holydrone_lbc4_v1-explode.gif)
-
-[装配静态预览](demo/holydrone_lbc4_v1-assembled.png) · [展开静态预览](demo/holydrone_lbc4_v1-exploded.png)
+| ORIN NX 版 | 鲁班猫 4 版 |
+| :---: | :---: |
+| <img src="demo/holydrone_nx_v1-explode.gif" width="460" alt="ORIN NX 版分层爆炸动画"> | <img src="demo/holydrone_lbc4_v1-explode.gif" width="460" alt="鲁班猫 4 版分层爆炸动画"> |
+| [装配静态预览](demo/holydrone_nx_v1-assembled.png) · [展开静态预览](demo/holydrone_nx_v1-exploded.png) | [装配静态预览](demo/holydrone_lbc4_v1-assembled.png) · [展开静态预览](demo/holydrone_lbc4_v1-exploded.png) |
 
 两段动画分别提取对应主装配体中启用且可见的零件几何及装配变换，参照 [demo/holydrone explode.mp4](demo/holydrone%20explode.mp4) 的轴向分层展开方式制作。颜色按部件类别区分，位移仅用于结构展示，不代表拆装工艺、实际行程或配合关系；未把一份旧视频改名作为两种版本。生成方式与素材记录见 [展示素材说明](demo/README.md)。
 
-### 静态牵引版（Static Towing）
+### 牵引版本
 
-![静态牵引版 CAD 建模图](demo/holydrone_static_towing_v1-model.png)
+| 静态牵引版（Static Towing） | 可转动拖曳版（Towing） |
+| :---: | :---: |
+| <img src="demo/holydrone_static_towing_v1-model.png" width="460" alt="静态牵引版 CAD 建模图"> | <img src="demo/holydrone_towing_v1-model.png" width="460" alt="可转动拖曳版 CAD 建模图"> |
+| `STATIC_TOWING_NOHOST`：顶部碳棒与气球包络 | `AIRBORNE_90deg`：空中配置的拖曳机构与下方气球包络 |
 
-采用 `STATIC_TOWING_NOHOST` 配置，展示顶部碳棒与气球包络。
-
-### 可转动拖曳版（Towing）
-
-![可转动拖曳版 CAD 建模图](demo/holydrone_towing_v1-model.png)
-
-采用 `AIRBORNE_90deg` 空中配置，展示拖曳机构与下方气球包络。两张静态图均从当前主装配体的可见零件网格及装配位置生成，采用英文标题和示意配色，属于 CAD 建模展示。
+两张静态图均从当前主装配体的可见零件网格及装配位置生成，采用英文标题和示意配色，属于 CAD 建模展示。
 
 静态版结构与安装说明见 [静态牵引说明](Hardware/3dp4drone/balloonstatictowing/静态牵引装配说明.txt)。模型碳棒为 **直径 4 mm、长度 300 mm**，与维护者确认的规格一致；原支架 6 mm 孔通过外径 6 mm、内径 4.2 mm 衬套适配。此核查只确认 CAD 尺寸与已提供规格一致，尚无实物测量记录。
 

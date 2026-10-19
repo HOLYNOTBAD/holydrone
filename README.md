@@ -2,8 +2,6 @@
 
 Contributors include: Li Hong, Linkai Liu, Dingchen Zeng, Xiangyu Ren, Chunjiang Wu, Yuchen Xiao, Yuehui He, Yujun Zhang, Shuli Lv, and Chen Min.
 
-To everyone who has helped along the way: thank you for your time, patience, and willingness to work through the challenges together. This project would not be where it is today without you.
-
 A Mark4 7-inch drone research platform for drone interception and low-altitude security experiments. Four variants cover ORIN NX and LubanCat 4 companion computers, static balloon towing, and pivoting balloon towing. This repository includes CAD assemblies, 3D-printable parts, PX4 firmware, parameter snapshots, and hardware demonstrations.
 
 Contributions to the hardware and software are welcome.
@@ -102,3 +100,5 @@ Select the companion computer and towing accessories for your variant. Verify sp
 | 13 | RGB LED strip + quick-connect board | — | 1 | [Product](https://item.taobao.com/item.htm?id=1039871543334&skuId=6226525563898) |
 | 14 | Parachute | <img src="demo/bom/14-parachute.png" width="96" alt="Parachute"> | 1 | [Product](https://item.taobao.com/item.htm?id=707712088745&skuId=4970106592804) |
 | 15 | CUAV C-RTK 9Ps RTK module | <img src="demo/bom/15-cuav-rtk.png" width="96" alt="CUAV C-RTK 9Ps RTK module"> | 1 | [Product](https://item.taobao.com/item.htm?id=672313744007&skuId=4841813280367) |
+
+To everyone who has helped along the way: thank you for your time, patience, and willingness to work through the challenges together. This project would not be where it is today without you.

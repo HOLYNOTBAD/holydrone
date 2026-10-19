@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "links": {
-    "checked": 26,
+    "checked": 23,
     "missing": 0
   },
   "images": [
@@ -60,6 +60,22 @@
         720
       ],
       "bytes": 107607
+    },
+    {
+      "path": "demo/holydrone_static_towing_v1-model.png",
+      "size": [
+        1200,
+        1000
+      ],
+      "bytes": 121191
+    },
+    {
+      "path": "demo/holydrone_towing_v1-model.png",
+      "size": [
+        1200,
+        1000
+      ],
+      "bytes": 60217
     }
   ],
   "cad_hashes_match": true,
@@ -72,5 +88,16 @@
     "32_BatteryHolder_MountReady.stl"
   ],
   "errors": [],
-  "repository_layout": "Hardware / Firmware / Params / demo"
+  "repository_layout": "Hardware / Firmware / Params / demo",
+  "static_towing_render": {
+    "configurations": [
+      "STATIC_TOWING_NOHOST",
+      "AIRBORNE_90deg"
+    ],
+    "read_only": true,
+    "nonempty_mesh_instances": [
+      53,
+      56
+    ]
+  }
 }

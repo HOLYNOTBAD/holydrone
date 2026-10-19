@@ -1,6 +1,6 @@
 # 展示素材记录
 
-本目录沿用远端的平铺结构：GIF、PNG、参考 MP4、哈希记录和检查记录直接放在 `demo/`，生成脚本集中在 `demo/tools/`。图中文字全部为英文（ORIN NX / LubanCat 4），正文说明保留中文。
+本目录沿用远端的平铺结构：GIF、PNG、参考 MP4、哈希记录和检查记录直接放在 `demo/`，生成脚本集中在 `demo/tools/`。图中文字全部为英文（ORIN NX / LubanCat 4 / Static Towing / Towing），正文说明保留中文。
 
 2026-10-18 从当前主装配体实际零件几何生成。原始参考为 [holydrone explode.mp4](holydrone%20explode.mp4)，1920×1080，约 6.073 秒：由合拢状态沿竖向分层展开。没有用该视频冒充新机型，也没有通过生成式图像补画零件。
 
@@ -15,6 +15,13 @@ GIF 尺寸 960×720，循环播放；72 个输入帧按 80 ms 排布，总时长
 
 生成工具见 [tools](tools/README.md)，输入/输出 SHA-256 与文件大小见 [media-manifest.json](media-manifest.json)。README 使用相对路径嵌入 GIF，静态 PNG 供无法播放动画时查看。
 
-两种牵引版的实物照片仍待补充。现有仓库图片只含零件截图/渲染/贴图；Notion 正文当前需要登录权限，没有用于此处的照片。补图时保留来源、机型、拍摄日期（若已知）与授权记录。
+2026-10-19：新增两款牵引机型的 1200×1000 静态 CAD 展示图，分别读取当前保存的 `STATIC_TOWING_NOHOST` 与 `AIRBORNE_90deg` 配置。保留实际装配位置，采用示意配色与英文标题；气球包络直径 150 mm。
+
+| 素材 | 输入配置 | 有非空三角网格的可见组件实例 |
+| --- | --- | --- |
+| `holydrone_static_towing_v1-model.png` | `Hardware/holydrone_static_towing_v1.sldasm` / `STATIC_TOWING_NOHOST` | 53 |
+| `holydrone_towing_v1-model.png` | `Hardware/holydrone_towing_v1.SLDASM` / `AIRBORNE_90deg` | 56 |
+
+两图来自 SolidWorks 只读提取的零件网格和装配变换；未修改 CAD，未施加爆炸位移。无可用三角网格的组件不绘制，细棉线在整机缩放下可能不明显。
 
 2026-10-19：展示素材与生成工具统一迁移到 demo；两种机型的 GIF 和静态预览标题、状态、图例及页脚全部采用英文。

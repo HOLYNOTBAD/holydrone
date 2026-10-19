@@ -27,9 +27,17 @@
 
 两段动画分别提取对应主装配体中启用且可见的零件几何及装配变换，参照 [demo/holydrone explode.mp4](demo/holydrone%20explode.mp4) 的轴向分层展开方式制作。颜色按部件类别区分，位移仅用于结构展示，不代表拆装工艺、实际行程或配合关系；未把一份旧视频改名作为两种版本。生成方式与素材记录见 [展示素材说明](demo/README.md)。
 
-### 静态牵引版与可转动拖曳版
+### 静态牵引版（Static Towing）
 
-**两种牵引版的实物照片待补充。** Notion 页面已可通过授权连接读取；当前尚未选取并核实可用于两种机型展示的整机实拍。照片补充后应存入 `demo/`，注明机型、拍摄来源与使用授权。
+![静态牵引版 CAD 建模图](demo/holydrone_static_towing_v1-model.png)
+
+采用 `STATIC_TOWING_NOHOST` 配置，展示顶部碳棒与气球包络。
+
+### 可转动拖曳版（Towing）
+
+![可转动拖曳版 CAD 建模图](demo/holydrone_towing_v1-model.png)
+
+采用 `AIRBORNE_90deg` 空中配置，展示拖曳机构与下方气球包络。两张静态图均从当前主装配体的可见零件网格及装配位置生成，采用英文标题和示意配色，属于 CAD 建模展示。
 
 静态版结构与安装说明见 [静态牵引说明](Hardware/3dp4drone/balloonstatictowing/静态牵引装配说明.txt)。模型碳棒为 **直径 4 mm、长度 300 mm**，与维护者确认的规格一致；原支架 6 mm 孔通过外径 6 mm、内径 4.2 mm 衬套适配。此核查只确认 CAD 尺寸与已提供规格一致，尚无实物测量记录。
 
@@ -60,33 +68,6 @@ holydrone/
 ├── demo/                      # 展示动画、图片和参考视频
 └── README.md
 ```
-
-| 路径 | 内容与用途 |
-| --- | --- |
-| `Hardware/` 下四个 `holydrone_*_v1` 装配体 | 四种有效主机型；`Hardware.SLDASM` 为共用紧固件子装配，不是第五种机型 |
-| `Hardware/3dp4drone/` | 机载支架、打印件 CAD/STL 和 `Holydrone PLA.sldmat` 材料库；材料库名称不等于全部零件已完成材料/强度验证 |
-| `Hardware/3dp4drone/batteryholder/` | 原电池托 `batteryholder v9` |
-| `Hardware/3dp4drone/camholder/` | 0°、30°、90°相机支架与 STL 变体；当前四种装配均启用 30° CAD 支架 |
-| `Hardware/3dp4drone/nxholder/` | 原 NX 支架的 CATPart/STL/SLDPRT，鲁班猫六孔改装支架及说明；`*_original` 为比较用原始版本，不是当前鲁班猫支架 |
-| `Hardware/3dp4drone/receiver/` | 接收模块支架原稿与改装模型；当前装配引用 `receiver_Part1_org.SLDPRT`，不能仅按文件名把另一版本视为生效件 |
-| `Hardware/3dp4drone/rtk-ant holder/` | RTK 天线支架模型与 STL；是否用于具体实物需另行核实 |
-| `Hardware/3dp4drone/side plate/` | 侧板和 5G 模块安装板等打印附件；目录存在不等于主装配启用 |
-| `Hardware/3dp4drone/balloonstatictowing/` | 静态牵引顶部支架、气球托原始 STL/导入模型、碳棒与衬套几何 |
-| `Hardware/3dp4drone/balloontowing/` | 可转动拖曳机构 CAD，以及共享气球包络 |
-| `Hardware/3dp4drone/balloontowing/STL_打印件/` | 当前仅四件：05 气球托、30 铰座、31 夹座、32 改装电池托 |
-| `Hardware/3dp4exp/balloon dynamic holder/` | 当前为空目录，没有可用模型；不作为生产零件来源 |
-| `Hardware/3dp4exp/balloon static holder/` | 地面实验用气球固定件，不等同于机载静态牵引总成 |
-| `Hardware/3dp4exp/drone takeoff stand/` | 起飞支撑件与 30°支撑件 |
-| `Hardware/3dp4exp/RTK base station/` | RTK 基站打印附件，三份 STL |
-| `Hardware/plates/` | 机架板件外形 CAD，包含 `GEPRC Mk4 7in Arms` 等；不是塑料打印生产清单 |
-| `Hardware/fasteners/` | 螺钉、螺母、嵌件、隔柱及镜像/组合示意，不能按文件数统计采购数量 |
-| `Hardware/modules/` | 电机、桨叶、飞控/电调、相机、RTK、上位机及数传外形 CAD |
-| `Hardware/modules/LubanCat4/` | 鲁班猫 STEP 与带/不带底板的派生模型；当前采用带底板版本 |
-| `Hardware/modules/misc/` | 原始交换格式、下载快照与截图；包含电池、P9 模块等有效引用 |
-| `Hardware/modules/misc/*snapshot*/`、`Hardware/modules/misc/C-RTK 2hp/` | 各来源包的原文件，逐目录说明见 [目录索引](Hardware/DIRECTORIES.md) |
-| `demo/` | 爆炸参考视频、英文 GIF 与静态预览、BOM 配图、生成工具及素材哈希记录 |
-| `Firmware/` | PX4 固件文件，刷写前核对飞控型号与固件来源 |
-| `Params/` | `0924.params` 与 `0929 fix mag.params` 参数快照，导入前核对适配机型 |
 
 历史备份不属于发布资源，`version_backups/` 已被 Git 忽略。`~$` 开头的是 SolidWorks 会话锁文件，不是设计资产；新增忽略规则不会自动清除已跟踪的历史锁文件。
 

@@ -17,11 +17,13 @@ GIF 尺寸 960×720，循环播放；72 个输入帧按 80 ms 排布，总时长
 
 2026-10-19：新增两款牵引机型的 1200×1000 静态 CAD 展示图，分别读取当前保存的 `STATIC_TOWING_NOHOST` 与 `AIRBORNE_90deg` 配置。保留实际装配位置，采用示意配色与英文标题；气球包络直径 150 mm。
 
-| 素材 | 输入配置 | 有非空三角网格的可见组件实例 |
+| 素材 | 输入配置 | 绘制的可见组件实例 |
 | --- | --- | --- |
-| `holydrone_static_towing_v1-model.png` | `Hardware/holydrone_static_towing_v1.sldasm` / `STATIC_TOWING_NOHOST` | 53 |
+| `holydrone_static_towing_v1-model.png` | `Hardware/holydrone_static_towing_v1.sldasm` / `STATIC_TOWING_NOHOST` | 54 |
 | `holydrone_towing_v1-model.png` | `Hardware/holydrone_towing_v1.SLDASM` / `AIRBORNE_90deg` | 56 |
 
 两图来自 SolidWorks 只读提取的零件网格和装配变换；未修改 CAD，未施加爆炸位移。无可用三角网格的组件不绘制，细棉线在整机缩放下可能不明显。
 
 2026-10-19：展示素材与生成工具统一迁移到 demo；两种机型的 GIF 和静态预览标题、状态、图例及页脚全部采用英文。
+
+2026-10-19：修复静态牵引气球托漏绘。该导入零件的 SolidWorks 三角面提取为空，改用同目录原始 `气球托v4 4.2mm.STL`，将毫米转换为米并应用保存的组件变换；气球托采用橙色，与红色气球区分。

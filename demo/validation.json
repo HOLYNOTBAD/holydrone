@@ -67,7 +67,7 @@
         1200,
         1000
       ],
-      "bytes": 121191
+      "bytes": 124901
     },
     {
       "path": "demo/holydrone_towing_v1-model.png",
@@ -96,8 +96,9 @@
     ],
     "read_only": true,
     "nonempty_mesh_instances": [
-      53,
+      54,
       56
-    ]
+    ],
+    "mesh_fallback": "Original balloon cup STL, millimeters converted to meters, using saved component transform"
   }
 }

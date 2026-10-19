@@ -73,6 +73,10 @@ Open the selected assembly in `Hardware/` with **SolidWorks 2024**. Keep the fol
 
 Some CAD component models differ from the installed hardware; see the [BOM notes](Hardware/BOM.md). Complete companion-computer software and wiring documentation are not included.
 
+## Acknowledgments
+
+Li Hong, Linkai Liu, Xiangyu Ren, Shuli Lv, Chen Min, Chunjiang Wu, Yujun Zhang, Dingchen Zeng, Yuchen Xiao, Yuehui He.
+
 ## License
 
 No repository-wide license has been specified. Third-party models remain subject to their original authors' licenses.
@@ -98,5 +102,3 @@ Select the companion computer and towing accessories for your variant. Verify sp
 | 13 | RGB LED strip + quick-connect board | — | 1 | [Product](https://item.taobao.com/item.htm?id=1039871543334&skuId=6226525563898) |
 | 14 | Parachute | <img src="demo/bom/14-parachute.png" width="96" alt="Parachute"> | 1 | [Product](https://item.taobao.com/item.htm?id=707712088745&skuId=4970106592804) |
 | 15 | CUAV C-RTK 9Ps RTK module | <img src="demo/bom/15-cuav-rtk.png" width="96" alt="CUAV C-RTK 9Ps RTK module"> | 1 | [Product](https://item.taobao.com/item.htm?id=672313744007&skuId=4841813280367) |
-
-Item 8 remains unidentified. The 5 V converter uses a generic product image. See [selection and variant notes](Hardware/BOM.md) and [image sources](demo/bom/README.md) for details.

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-19",
+  "files": [
+    {
+      "path": "demo/holydrone explode.mp4",
+      "bytes": 2994119,
+      "sha256": "3bf004180cb9238aa6a61f00a760039ff4e6bb757c5756c34329e7096c811294"
+    },
+    {
+      "path": "Hardware/holydrone_nx_v1.SLDASM",
+      "bytes": 29244158,
+      "sha256": "3a99023f22bdb2aec1c6a60617d23e3faf1ad4e2d5c4565dde939b77739153e5"
+    },
+    {
+      "path": "Hardware/holydrone_lbc4_v1.SLDASM",
+      "bytes": 31498511,
+      "sha256": "5770673da0ef9631f70980b8109eebfd51db20e239f9740472361e2cf449c529"
+    },
+    {
+      "path": "Hardware/holydrone_static_towing_v1.sldasm",
+      "bytes": 27744195,
+      "sha256": "6d15a52fb608d6360a658d86afa5e63def6c5bd454084e7d7aa7316ebc5daacb"
+    },
+    {
+      "path": "Hardware/holydrone_towing_v1.SLDASM",
+      "bytes": 27244067,
+      "sha256": "337cc57d4d9bbce001f9704513e136bc9afe421f6ba3cdc9a342f528f6e5e8c4"
+    },
+    {
+      "path": "demo/holydrone_lbc4_v1-explode.gif",
+      "bytes": 1210882,
+      "sha256": "68bdd1ade39954a6437b845f9348a37586e0ae0e3e1bf09d6d3bc73e58bda05d"
+    },
+    {
+      "path": "demo/holydrone_nx_v1-explode.gif",
+      "bytes": 1152258,
+      "sha256": "bd6ae57e3278f723f3effff23b730979e05e1cb65a6cf858819f09364923305d"
+    },
+    {
+      "path": "demo/holydrone_lbc4_v1-assembled.png",
+      "bytes": 76080,
+      "sha256": "c259309ada362832b2acb6a22732e2eab62d1e226ae06735f67a929a34495861"
+    },
+    {
+      "path": "demo/holydrone_lbc4_v1-exploded.png",
+      "bytes": 113269,
+      "sha256": "54c35662f093603cb05260c7070aaca7c00628872e0d7d12770bce3d293ea641"
+    },
+    {
+      "path": "demo/holydrone_nx_v1-assembled.png",
+      "bytes": 70100,
+      "sha256": "23331bc2243e01dd1b8a8f0cb95ba57c80080b82300eb5a16b2984b49fb782c3"
+    },
+    {
+      "path": "demo/holydrone_nx_v1-exploded.png",
+      "bytes": 107607,
+      "sha256": "76807acbd68edc0408d18836f78b68c46dde68e7ed7b2df0af2109bc5fbb2e01"
+    }
+  ]
+}

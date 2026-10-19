@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-19",
+  "links": {
+    "checked": 26,
+    "missing": 0
+  },
+  "images": [
+    {
+      "path": "demo/holydrone_lbc4_v1-assembled.png",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 76080
+    },
+    {
+      "path": "demo/holydrone_lbc4_v1-explode.gif",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 1210882,
+      "frames": 47,
+      "duration_ms": 5760,
+      "loop": 0,
+      "unique_frames": 24
+    },
+    {
+      "path": "demo/holydrone_lbc4_v1-exploded.png",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 113269
+    },
+    {
+      "path": "demo/holydrone_nx_v1-assembled.png",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 70100
+    },
+    {
+      "path": "demo/holydrone_nx_v1-explode.gif",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 1152258,
+      "frames": 47,
+      "duration_ms": 5760,
+      "loop": 0,
+      "unique_frames": 24
+    },
+    {
+      "path": "demo/holydrone_nx_v1-exploded.png",
+      "size": [
+        960,
+        720
+      ],
+      "bytes": 107607
+    }
+  ],
+  "cad_hashes_match": true,
+  "configuration_count": 5,
+  "active_missing_paths": [],
+  "towing_stls": [
+    "05_Balloon50_QuickTie_Ballast.stl",
+    "30_Hinge_RootFillets.stl",
+    "31_Clamp_Rounded.stl",
+    "32_BatteryHolder_MountReady.stl"
+  ],
+  "errors": [],
+  "repository_layout": "Hardware / Firmware / Params / demo"
+}

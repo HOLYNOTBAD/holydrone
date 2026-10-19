@@ -22,8 +22,10 @@ GIF 尺寸 960×720，循环播放；72 个输入帧按 80 ms 排布，总时长
 | `holydrone_static_towing_v1-model.png` | `Hardware/holydrone_static_towing_v1.sldasm` / `STATIC_TOWING_NOHOST` | 54 |
 | `holydrone_towing_v1-model.png` | `Hardware/holydrone_towing_v1.SLDASM` / `AIRBORNE_90deg` | 56 |
 
-两图来自 SolidWorks 只读提取的零件网格和装配变换；未修改 CAD，未施加爆炸位移。无可用三角网格的组件不绘制，细棉线在整机缩放下可能不明显。
+两图来自 SolidWorks 只读提取的零件网格和装配变换；未修改 CAD，未施加爆炸位移。无可用三角网格的组件不绘制，棉线在渲染中作可见性增强。
 
 2026-10-19：展示素材与生成工具统一迁移到 demo；两种机型的 GIF 和静态预览标题、状态、图例及页脚全部采用英文。
 
 2026-10-19：修复静态牵引气球托漏绘。该导入零件的 SolidWorks 三角面提取为空，改用同目录原始 `气球托v4 4.2mm.STL`，将毫米转换为米并应用保存的组件变换；气球托采用橙色，与红色气球区分。
+
+2026-10-19：Towing 棉线原直径 0.18 mm，整机缩放后不足一个像素；仅在渲染中将径向尺寸放大到等效 6 mm 并使用橙色，中心线、长度和装配位置保持不变，未修改 CAD。图内已注明加粗展示。

@@ -75,7 +75,7 @@
         1200,
         1000
       ],
-      "bytes": 60217
+      "bytes": 65295
     }
   ],
   "cad_hashes_match": true,
@@ -99,6 +99,8 @@
       54,
       56
     ],
-    "mesh_fallback": "Original balloon cup STL, millimeters converted to meters, using saved component transform"
+    "mesh_fallback": "Original balloon cup STL, millimeters converted to meters, using saved component transform",
+    "tether_display_diameter_mm": 6,
+    "tether_cad_diameter_mm": 0.18
   }
 }

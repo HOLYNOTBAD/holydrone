@@ -29,7 +29,7 @@
 | <img src="demo/holydrone_static_towing_v1-model.png" width="460" alt="静态牵引版 CAD 建模图"> | <img src="demo/holydrone_towing_v1-model.png" width="460" alt="可转动拖曳版 CAD 建模图"> |
 | `STATIC_TOWING_NOHOST`：顶部碳棒与气球包络 | `AIRBORNE_90deg`：空中配置的拖曳机构与下方气球包络 |
 
-两张静态图均从当前主装配体的可见零件网格及装配位置生成，采用英文标题和示意配色，属于 CAD 建模展示。
+两张静态图均从当前主装配体的可见零件网格及装配位置生成，采用英文标题和示意配色，属于 CAD 建模展示。Towing 的橙色绳索仅在展示中加粗，以便缩略图辨识；CAD 绳径仍为 0.18 mm。
 
 静态版结构与安装说明见 [静态牵引说明](Hardware/3dp4drone/balloonstatictowing/静态牵引装配说明.txt)。模型碳棒为 **直径 4 mm、长度 300 mm**，与维护者确认的规格一致；原支架 6 mm 孔通过外径 6 mm、内径 4.2 mm 衬套适配。此核查只确认 CAD 尺寸与已提供规格一致，尚无实物测量记录。
 

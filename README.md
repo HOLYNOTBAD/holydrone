@@ -1,5 +1,9 @@
 # holydrone
 
+Li Hong, Linkai Liu, Xiangyu Ren, Shuli Lv, Chen Min, Chunjiang Wu, Yujun Zhang, Dingchen Zeng, Yuchen Xiao, Yuehui He.
+
+Thank you all for your help!
+
 A Mark4 7-inch drone research platform for drone interception and low-altitude security experiments. Four variants cover ORIN NX and LubanCat 4 companion computers, static balloon towing, and pivoting balloon towing. This repository includes CAD assemblies, 3D-printable parts, PX4 firmware, parameter snapshots, and hardware demonstrations.
 
 Contributions to the hardware and software are welcome.
@@ -72,10 +76,6 @@ Open the selected assembly in `Hardware/` with **SolidWorks 2024**. Keep the fol
 | [Hardware directory index](Hardware/DIRECTORIES.md) | Model and file descriptions |
 
 Some CAD component models differ from the installed hardware; see the [BOM notes](Hardware/BOM.md). Complete companion-computer software and wiring documentation are not included.
-
-## Acknowledgments
-
-Li Hong, Linkai Liu, Xiangyu Ren, Shuli Lv, Chen Min, Chunjiang Wu, Yujun Zhang, Dingchen Zeng, Yuchen Xiao, Yuehui He.
 
 ## License
 

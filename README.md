@@ -61,6 +61,7 @@ holydrone/
 │   ├── holydrone_*-explode.gif
 │   ├── holydrone_*-assembled.png
 │   ├── holydrone_*-exploded.png
+│   ├── bom/                   # Notion BOM 物品图片及来源记录
 │   ├── tools/                 # 几何导出和动画生成脚本
 │   ├── media-manifest.json    # 素材路径和 SHA-256
 │   └── validation.json        # 展示素材检查记录
@@ -90,7 +91,7 @@ holydrone/
 | `Hardware/modules/LubanCat4/` | 鲁班猫 STEP 与带/不带底板的派生模型；当前采用带底板版本 |
 | `Hardware/modules/misc/` | 原始交换格式、下载快照与截图；包含电池、P9 模块等有效引用 |
 | `Hardware/modules/misc/*snapshot*/`、`Hardware/modules/misc/C-RTK 2hp/` | 各来源包的原文件，逐目录说明见 [目录索引](Hardware/DIRECTORIES.md) |
-| `demo/` | 爆炸参考视频、英文 GIF 与静态预览、生成工具及素材哈希记录 |
+| `demo/` | 爆炸参考视频、英文 GIF 与静态预览、BOM 配图、生成工具及素材哈希记录 |
 | `Firmware/` | PX4 固件文件，刷写前核对飞控型号与固件来源 |
 | `Params/` | `0924.params` 与 `0929 fix mag.params` 参数快照，导入前核对适配机型 |
 
@@ -102,23 +103,25 @@ holydrone/
 
 来源：[holydrone——7 寸穿越机装配](https://app.notion.com/p/3573520427fd8005840cdcc12764cd68) 中的 [1.1 BOM](https://app.notion.com/p/3853520427fd805ebc13d6384a617ec7)。2026-10-19 通过授权连接读取全部 **15 条记录**，数量沿用原表，型号补充来自同页硬件说明。采购链接保留商品 ID 与 SKU，去除分享追踪参数；商品在售状态、价格和选项变更尚未核验。Notion 原记录为私有页面，访问需要相应权限。
 
-| 序号 | 物料 / 规格 | 原表数量 | 采购来源 | 核对说明 |
-| --- | --- | --- | --- | --- |
-| 1 | Mark4 7 寸机架 | 1套 | [商品链接](https://item.taobao.com/item.htm?id=678090972875&skuId=4871676933340) | 7 寸版本 |
-| 2 | EMAX ECO II 2807 1700KV 电机 | 4个 | [商品链接](https://item.taobao.com/item.htm?id=642731025018&skuId=5101017592191) | BOM 与正文最终选型一致 |
-| 3 | MicoAir743 V2 + 70A 32bit 四合一电调飞塔 | 1套 | [商品链接](https://item.taobao.com/item.htm?id=949016296353&skuId=6025215071231) | 型号依据正文 §1.4；743 V2 与 743 应区分 |
-| 4 | 阿木实验室 Allspark2-Orin 上位机 | 1个 | [商品链接](https://item.taobao.com/item.htm?id=705748339987&skuId=5786543713974) | NX 版；牵引版不安装上位机 |
-| 5 | CUAV P9 数传电台 | 1对 | [商品链接](https://item.taobao.com/item.htm?id=667193254604&skuId=4809453989330) | 1 对为空中端/地面端配套 |
-| 6 | 2.4 GHz ELRS 接收机 | 1个 | [商品链接](https://item.taobao.com/item.htm?id=831092464978&skuId=6055826220853) | 正文记录 EP1 2400RX 与 RP4TD-M，具体版本待确认 |
-| 7 | 亚博智能 USB 相机（200 万像素） | 1个 | [商品链接](https://detail.tmall.com/item.htm?id=775110864301&skuId=5300422684518) | 规格依据正文 §1.8 |
-| 8 | 未命名物料 | 1个 | [原始条目](https://app.notion.com/p/39c3520427fd80ab800af4c0dd67ad9f) | 原始名称为空，子页面正文也为空；用途待确认 |
-| 9 | HQProp 7040 7 寸三叶桨 | 多套 | [商品链接](https://item.taobao.com/item.htm?id=671633881954&skuId=5010241515719) | 数量为“多套”，原名称另含“x2”；包装/采购数量待确认 |
-| 10 | DC-DC 降压模块（12 V，NX 用） | 1个 | [商品链接](https://item.taobao.com/item.htm?id=677122068881&skuId=6264144190644) | 与 5 V 模块为同一商品不同 SKU |
-| 11 | DC-DC 降压模块（5 V） | 1 | [商品链接](https://item.taobao.com/item.htm?id=677122068881&skuId=6264144190643) | 原表数量为“1” |
-| 12 | microHDMI 显示器模拟器 | 1个 | [商品链接](https://item.taobao.com/item.htm?id=896020537740&skuId=5980377650344) | 原文“显卡欺骗器”；接口规格需核对 |
-| 13 | RGB 灯带 + 快接板 | 1个 | [商品链接](https://item.taobao.com/item.htm?id=1039871543334&skuId=6226525563898) | 原表未拆分套内数量 |
-| 14 | 降落伞 | 1个 | [商品链接](https://item.taobao.com/item.htm?id=707712088745&skuId=4970106592804) | 规格、触发方式与适配机型待确认 |
-| 15 | RTK（正文指定 CUAV C-RTK 9Ps） | 1个 | [商品链接](https://item.taobao.com/item.htm?id=672313744007&skuId=4841813280367) | 型号依据正文 §1.9；基站/移动端数量分配待确认 |
+| 序号 | 物料 / 规格 | 图片 | 原表数量 | 采购来源 | 核对说明 |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Mark4 7 寸机架 | <img src="demo/bom/01-mark4-frame.png" width="120" alt="Mark4 7 寸机架"> | 1套 | [商品链接](https://item.taobao.com/item.htm?id=678090972875&skuId=4871676933340) | 7 寸版本 |
+| 2 | EMAX ECO II 2807 1700KV 电机 | <img src="demo/bom/02-emax-2807-motor.png" width="120" alt="EMAX ECO II 2807 1700KV 电机"> | 4个 | [商品链接](https://item.taobao.com/item.htm?id=642731025018&skuId=5101017592191) | BOM 与正文最终选型一致 |
+| 3 | MicoAir743 V2 + 70A 32bit 四合一电调飞塔 | <img src="demo/bom/03-micoair743-v2-stack.png" width="120" alt="MicoAir743 V2 + 70A 32bit 四合一电调飞塔"> | 1套 | [商品链接](https://item.taobao.com/item.htm?id=949016296353&skuId=6025215071231) | 型号依据正文 §1.4；743 V2 与 743 应区分 |
+| 4 | 阿木实验室 Allspark2-Orin 上位机 | <img src="demo/bom/04-allspark2-orin.png" width="120" alt="阿木实验室 Allspark2-Orin 上位机"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=705748339987&skuId=5786543713974) | NX 版；牵引版不安装上位机 |
+| 5 | CUAV P9 数传电台 | <img src="demo/bom/05-cuav-p9-radio.png" width="120" alt="CUAV P9 数传电台"> | 1对 | [商品链接](https://item.taobao.com/item.htm?id=667193254604&skuId=4809453989330) | 1 对为空中端/地面端配套 |
+| 6 | 2.4 GHz ELRS 接收机 | <img src="demo/bom/06-elrs-receiver.png" width="120" alt="2.4 GHz ELRS 接收机"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=831092464978&skuId=6055826220853) | 正文记录 EP1 2400RX 与 RP4TD-M，具体版本待确认 |
+| 7 | 亚博智能 USB 相机（200 万像素） | <img src="demo/bom/07-usb-camera.png" width="120" alt="亚博智能 USB 相机（200 万像素）"> | 1个 | [商品链接](https://detail.tmall.com/item.htm?id=775110864301&skuId=5300422684518) | 规格依据正文 §1.8 |
+| 8 | 未命名物料 | <img src="demo/bom/08-unnamed-item.png" width="120" alt="未命名物料"> | 1个 | [原始条目](https://app.notion.com/p/39c3520427fd80ab800af4c0dd67ad9f) | 原始名称为空，子页面正文也为空；用途待确认 |
+| 9 | HQProp 7040 7 寸三叶桨 | <img src="demo/bom/09-hqprop-7040.png" width="120" alt="HQProp 7040 7 寸三叶桨"> | 多套 | [商品链接](https://item.taobao.com/item.htm?id=671633881954&skuId=5010241515719) | 数量为“多套”，原名称另含“x2”；包装/采购数量待确认 |
+| 10 | DC-DC 降压模块（12 V，NX 用） | <img src="demo/bom/10-dc-dc-converter.png" width="120" alt="DC-DC 降压模块（12 V，NX 用）"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=677122068881&skuId=6264144190644) | 与 5 V 模块为同一商品不同 SKU |
+| 11 | DC-DC 降压模块（5 V） | <img src="demo/bom/10-dc-dc-converter.png" width="120" alt="DC-DC 降压模块（5 V）"><br>同商品通用示意图 | 1 | [商品链接](https://item.taobao.com/item.htm?id=677122068881&skuId=6264144190643) | 原表数量为“1” |
+| 12 | microHDMI 显示器模拟器 | <img src="demo/bom/12-display-emulator.png" width="120" alt="microHDMI 显示器模拟器"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=896020537740&skuId=5980377650344) | 原文“显卡欺骗器”；接口规格需核对 |
+| 13 | RGB 灯带 + 快接板 | 待补图（Notion 原表无图片） | 1个 | [商品链接](https://item.taobao.com/item.htm?id=1039871543334&skuId=6226525563898) | 原表未拆分套内数量 |
+| 14 | 降落伞 | <img src="demo/bom/14-parachute.png" width="120" alt="降落伞"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=707712088745&skuId=4970106592804) | 规格、触发方式与适配机型待确认 |
+| 15 | RTK（正文指定 CUAV C-RTK 9Ps） | <img src="demo/bom/15-cuav-rtk.png" width="120" alt="RTK（正文指定 CUAV C-RTK 9Ps）"> | 1个 | [商品链接](https://item.taobao.com/item.htm?id=672313744007&skuId=4841813280367) | 型号依据正文 §1.9；基站/移动端数量分配待确认 |
+
+图片取自 Notion 原条目，已保存为仓库内文件，点击仓库中的原图可放大查看。[配图来源记录](demo/bom/README.md) 列出对应条目。5 V 降压模块引用同商品的通用示意图（原图展示多种输出电压），不代表已核实 5 V 实物；RGB 灯带 + 快接板的原条目没有图片，待补充。未命名物料保持原名称状态，图片不作为型号确认依据。
 
 **选型冲突与缺项：** Notion 最终选型是 2807 1700KV，但正文另一处对 7 寸 / 6S 方案建议更低 KV。BOM 没有明确电池串数、容量及电机—桨—电池配套，仍需实物确认；不能将未命名条目直接视为电池。完整线束、紧固件、绑带和打印材料的数量也尚未列明。
 

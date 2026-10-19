@@ -34,3 +34,6 @@
 | `Hardware/plates/` | 机架板件 CAD。 | 8 |
 | `Firmware/` | PX4 固件文件。 | 1 |
 | `Params/` | 飞行参数快照。 | 2 |
+
+| `demo/bom/` | Notion BOM 原始配图与对应来源记录；5 V 模块共用通用示意图，RGB 灯带待配图。 | 14 |
+

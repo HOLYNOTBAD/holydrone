@@ -57,14 +57,7 @@ holydrone/
 │   └── plates/                # 机架板件模型
 ├── Firmware/                  # PX4 固件
 ├── Params/                    # 飞行参数快照
-├── demo/                      # 英文 GIF、静态预览和参考视频
-│   ├── holydrone_*-explode.gif
-│   ├── holydrone_*-assembled.png
-│   ├── holydrone_*-exploded.png
-│   ├── bom/                   # Notion BOM 物品图片及来源记录
-│   ├── tools/                 # 几何导出和动画生成脚本
-│   ├── media-manifest.json    # 素材路径和 SHA-256
-│   └── validation.json        # 展示素材检查记录
+├── demo/                      # 展示动画、图片和参考视频
 └── README.md
 ```
 

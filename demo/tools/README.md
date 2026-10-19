@@ -1,18 +1,22 @@
-# 展示动画生成工具
+# CAD preview generation tools
 
-`ExportReview.cs` 从实际四种主装配体读取启用/可见零件的三角网格、部件变换和包围盒；仅对 NX 和鲁班猫版输出网格。`SwRot.cs` 按 PID 查找会话，避免默认 COM 连接到其他进程。`export-meshes.ps1` 是入口；`render.py` 使用这些真实几何制作按类别着色、轴向展开的 GIF，不生成或修改配合/爆炸配置。
+`ExportReview.cs` reads enabled, visible component meshes, transforms, and bounding boxes from the four main assemblies, exporting meshes for the NX and LubanCat variants. `SwRot.cs` selects a SolidWorks session by PID. `export-meshes.ps1` is the entry point, and `render.py` creates category-colored, vertically exploded GIFs from the exported geometry.
 
-要求：Windows、SolidWorks 2024、Windows PowerShell/.NET Framework、Python 3.12（本次环境）、`numpy`、`Pillow`、`moderngl`、`glcontext`，以及可用 OpenGL 上下文。英文标注字体使用 Windows Segoe UI。依赖安装应使用独立虚拟环境。
+## Requirements
 
-1. 启动专用空白 SolidWorks 会话并记下 PID。导出器若发现会话已有文档会拒绝，避免使用正在编辑的会话。
-2. 设置实际路径执行下面命令。缓存目录应在仓库外，以免将约 200 MB 的中间网格提交。
-3. 运行渲染后检查装配/展开图片和 GIF，再决定替换发布素材。
+Windows, SolidWorks 2024, Windows PowerShell/.NET Framework, Python 3.12 (the version used for these previews), `numpy`, `Pillow`, `moderngl`, `glcontext`, and an available OpenGL context. Labels use Windows Segoe UI. Install Python dependencies in a dedicated virtual environment.
+
+## Workflow
+
+1. Start a dedicated, empty SolidWorks session and note its PID. The exporter refuses sessions that already have documents open.
+2. Run the commands below with your local paths. Keep the cache outside the repository; intermediate meshes can total approximately 200 MB.
+3. Inspect the assembled images, exploded images, and GIFs before replacing published assets.
 
 ```powershell
 powershell.exe -NoProfile -File .\demo\tools\export-meshes.ps1 -SolidWorksPid 12345 -Repository 'D:\holydrone' -Cache 'D:\holydrone-cache' -SolidWorksDirectory 'G:\App\sw2024\SOLIDWORKS'
 python .\demo\tools\render.py --work 'D:\holydrone-cache' --out '.\demo'
 ```
 
-导出器使用只读打开选项，不调用 CAD 保存接口。它会解析轻化组件，缓存对应零件并保持文档打开，方便排查；请结束后关闭此专用会话。不要将其改接到含未保存文档的用户会话。失败时先检查日志/输出与 PID，不通过强制结束 SolidWorks 进程处理。
+The exporter opens CAD documents read-only and does not save them. It resolves lightweight components, caches parts, and leaves documents open for inspection; close the dedicated session afterward. Do not attach it to a session containing unsaved work. On failure, inspect the logs and PID instead of force-terminating SolidWorks.
 
-导出清单是当前保存配置的几何快照。旧组件清单属于迁移前的历史审计；需要当前状态时请针对 `Hardware/` 中的装配体重新导出。子装配变换来自 `IComponent2.Transform2`，单位为米；渲染颜色为类别示意，不是原 CAD 外观还原。展示位移不写回 CAD，不作为实际拆装顺序。
+Exports capture the saved configurations. Re-export the assemblies under `Hardware/` when current geometry is needed. Subassembly transforms come from `IComponent2.Transform2`, with distances in meters. Rendering colors and exploded-view offsets are illustrative and are not written back to CAD.

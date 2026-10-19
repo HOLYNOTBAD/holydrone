@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-20",
+  "source_directory": "paper_so3nmpc/video/holydrone demo/",
+  "source_files": {
+    "holydrone_towing.mp4": {
+      "bytes": 55131685,
+      "sha256": "d25ea9ba08e940f3b0a5b9d2ffcbf5d21ee874b8e2820441f16bea4bca7823a7",
+      "size": [
+        2160,
+        3840
+      ],
+      "fps": 119.72384638444548,
+      "frames": 510
+    },
+    "intercept_slow.mp4": {
+      "bytes": 42485946,
+      "sha256": "fea803b9a5fa05c1709fbaebb9c6291793969ab62dc74a7d38295d50255d0efd",
+      "size": [
+        3840,
+        2160
+      ],
+      "fps": 120.0,
+      "frames": 585
+    },
+    "holydrone_static_towing.jpg": {
+      "bytes": 3489254,
+      "sha256": "c32d44f1c2eeee434ab8f5d9b68883d191fdce8a699dea565a977f474ff25e3f",
+      "size": [
+        3072,
+        4096
+      ],
+      "mode": "RGB"
+    },
+    "holydrone_lbc4.jpg": {
+      "bytes": 3726308,
+      "sha256": "ec6b4bdf8b7d4c0a4fd84ae1cfde091f2c109453fdfed44aea792ae3b8b14a51",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "holydrone_nx_darkbg.jpg": {
+      "bytes": 1514466,
+      "sha256": "944ac19b262fa0638267e88cc77b6a570e6a63bc2aff57e02f4ac35873f82324",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "holydrone_nx.jpg": {
+      "bytes": 4731140,
+      "sha256": "bcd02ed6367c4a21c1f4e464b3f1d64b5bf7d0acea5e5e421dbc30bb20b94f8d",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "holydrone_nx.png": {
+      "bytes": 3812941,
+      "sha256": "89de1cce4cdf8d6151fba07fca0d363ca3bd152955c6c9b35466a0706efbe481",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "towing_darkbg.jpg": {
+      "bytes": 1422713,
+      "sha256": "3655265da8d1b0a3d425bca8d125da0322e5790e459f79c6506127416acce34f",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    }
+  },
+  "outputs": {
+    "holydrone_towing-preview.gif": {
+      "bytes": 2862461,
+      "sha256": "6e56c9c74c5e5c9621270834dda4c18444049eeeac9738394f7a47001d9190ea",
+      "size": [
+        360,
+        640
+      ],
+      "mode": "P",
+      "frames": 43
+    },
+    "holydrone_towing.mp4": {
+      "bytes": 296337,
+      "sha256": "61de5253a3735f16de742cdb981130b10efe84d604a53200a5278b3f1d0d3120",
+      "size": [
+        720,
+        1280
+      ],
+      "fps": 30.0,
+      "frames": 128
+    },
+    "intercept_slow.mp4": {
+      "bytes": 222091,
+      "sha256": "ff865df86fafd17b0d05fc02ba0f561f790066b2cb9a052f0bde3bf0ec8d2e47",
+      "size": [
+        1280,
+        720
+      ],
+      "fps": 30.0,
+      "frames": 146
+    },
+    "intercept_slow-preview.gif": {
+      "bytes": 3179587,
+      "sha256": "0130e02663abd7c422a8103a895c9d80f1f4daa91111631cabd2f952e4cc527e",
+      "size": [
+        640,
+        360
+      ],
+      "mode": "P",
+      "frames": 49
+    },
+    "holydrone_nx-cutout.png": {
+      "bytes": 1284030,
+      "sha256": "ebb256037d49929d127d0a1a3da65705e096d882e0ae89bb606dc30a56e1e076",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "holydrone_lbc4-cutout.png": {
+      "bytes": 1167843,
+      "sha256": "96b1ec5305e99745d7fa8746babac3470824decee45c2a79a178439af3664139",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "holydrone_static_towing-cutout.png": {
+      "bytes": 787541,
+      "sha256": "bf5e1d36d4f32cd24419be6f182a8240c99599488dc75d2168f91d91af4528e9",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "originals/holydrone_static_towing.jpg": {
+      "bytes": 3489254,
+      "sha256": "c32d44f1c2eeee434ab8f5d9b68883d191fdce8a699dea565a977f474ff25e3f",
+      "size": [
+        3072,
+        4096
+      ],
+      "mode": "RGB"
+    },
+    "originals/holydrone_lbc4.jpg": {
+      "bytes": 3726308,
+      "sha256": "ec6b4bdf8b7d4c0a4fd84ae1cfde091f2c109453fdfed44aea792ae3b8b14a51",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "originals/holydrone_nx_darkbg.jpg": {
+      "bytes": 1514466,
+      "sha256": "944ac19b262fa0638267e88cc77b6a570e6a63bc2aff57e02f4ac35873f82324",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "originals/holydrone_nx.png": {
+      "bytes": 3812941,
+      "sha256": "89de1cce4cdf8d6151fba07fca0d363ca3bd152955c6c9b35466a0706efbe481",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    },
+    "originals/towing_darkbg.jpg": {
+      "bytes": 1422713,
+      "sha256": "3655265da8d1b0a3d425bca8d125da0322e5790e459f79c6506127416acce34f",
+      "size": [
+        4096,
+        3072
+      ],
+      "mode": "RGB"
+    }
+  }
+}

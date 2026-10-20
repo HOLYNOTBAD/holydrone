@@ -1,6 +1,6 @@
 # holydrone
 
-Contributors include: Li Hong, [Linkai Liu](https://github.com/InNoPuzzLevaTion), Dingchen Zeng, Xiangyu Ren, Chunjiang Wu, Yuchen Xiao, Yuehui He, Yujun Zhang, Shuli Lv, and Chen Min.
+Contributors include: [Li Hong](https://github.com/HOLYNOTBAD), [Linkai Liu](https://github.com/InNoPuzzLevaTion), Dingchen Zeng, Xiangyu Ren, Chunjiang Wu, Yuchen Xiao, Yuehui He, Yujun Zhang, Shuli Lv, and Chen Min.
 
 A Mark4 7-inch drone research platform for drone interception and low-altitude security experiments. Four variants cover ORIN NX and LubanCat 4 companion computers, static balloon towing, and pivoting balloon towing. This repository includes CAD assemblies, 3D-printable parts, PX4 firmware, parameter snapshots, and hardware demonstrations.
 

@@ -1,0 +1,19 @@
+<launch>
+  <arg name="world" default="$(find holydrone_sim)/gazebo/worlds/empty.world"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.055"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_holydrone"
+        args="-sdf -file $(find holydrone_sim)/gazebo/models/holydrone/holydrone.sdf
+              -model holydrone -x $(arg x) -y $(arg y) -z $(arg z)"
+        output="screen"/>
+</launch>

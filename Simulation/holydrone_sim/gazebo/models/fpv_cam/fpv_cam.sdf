@@ -1,0 +1,84 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='fpv_cam'>
+    <pose>0 0 0 0 0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>0.015</mass>
+          <inertia>
+            <ixx>4.15e-6</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.407e-6</iyy>
+          <iyz>0</iyz>
+          <izz>2.407e-6</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+        </visual>
+        <sensor name='camera' type='camera'>
+          <camera name='__default__'>
+            <horizontal_fov>1.464351677</horizontal_fov>
+            <image>
+              <width>2592</width>
+              <height>1944</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30.000000</update_rate>
+          <visualize>1</visualize>
+          <plugin name='camera_plugin' filename='libgazebo_ros_camera.so'>
+            <robotNamespace>/</robotNamespace>
+            <alwaysOn>true</alwaysOn>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <updateRate>0.000000</updateRate>
+            <cameraName>camera</cameraName>
+            <frameName>/robot_camera_link</frameName>
+            <CxPrime>1308.778680</CxPrime>
+            <Cx>1308.778680</Cx>
+            <Cy>944.419518</Cy>
+            <hackBaseline>0</hackBaseline>
+            <focalLength>1441.852623</focalLength>
+            <distortionK1>0.303591639743</distortionK1>
+            <distortionK2>0.157800954264</distortionK2>
+            <distortionK3>0.000000000000</distortionK3>
+            <distortionT1>-0.087203488782</distortionT1>
+            <distortionT2>-0.005450932899</distortionT2>
+          </plugin>
+          <!-- RViz uses libgazebo_ros_camera above. The PX4 GStreamer plugin
+             is intentionally disabled here because it is not needed for ROS
+             image topics and can destabilize Gazebo on the Jetson/aarch64
+             Gazebo classic stack. -->
+        </sensor>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+  </model>
+</sdf>

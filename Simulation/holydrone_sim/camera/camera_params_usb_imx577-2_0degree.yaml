@@ -1,0 +1,64 @@
+camera:
+  # Shared by real flight and simulation.
+  video_resource: 0  # /dev/video0
+  img_width: 2592
+  img_height: 1944
+  camera_model: "pinhole"
+  distortion_model: "equidistant"
+  framerate: 30
+  pixel_format: "MJPG"
+
+  # Reuse the selected IMX577-1 pinhole-equidistant calibration at 2592x1944
+  # (camera_intrinsics_20260924_161640), pending IMX577-2 calibration.
+  fx: 1403.4099047984728
+  fy: 1407.888948032561
+  cx: 1338.8677098371998
+  cy: 986.7062144198187
+  img_f: 1405.6494264155169  # Backward-compatible average of fx and fy
+  distortion_coeffs: [0.2919524317649766, 0.14415598619137712, -0.02055691550428982, -0.007820567941200044]  # equidistant: k1, k2, k3, k4
+
+  # Reuse IMX577-1 optical-center position and residual alignment. The
+  # 0-degree RDF -> body/IMU FLU rotation is Ry(+30 deg) * calibrated 30-degree
+  # R_cam_body, removing only the nominal mounting pitch. This is an
+  # uncalibrated approximation for IMX577-2, not measured 0-degree extrinsics.
+  position_body_m: [0.168383718831957, -0.004170615545433, 0.042787170195420]
+  R_cam_body: [0.048518845359457, 0.056158470417758, 0.997242271389116, -0.992087617955462, -0.113036850093251, 0.054633586926474, 0.115793263812891, -0.992002468102441, 0.050229705695182]
+  p_B_C: [0.168383718831957, -0.004170615545433, 0.042787170195420]  # Camera optical center in body/IMU FLU [m].
+  q_B_C: [0.496415073542642, -0.527097237176768, 0.443907253503508, -0.527908067382233]  # Camera RDF -> body/IMU FLU [w x y z].
+  img_distance: 20
+  time_offset: -0.031156147296902  # t_imu = t_cam + time_offset [s]
+
+  # Optional Gazebo model overrides. Empty values use the project defaults.
+  gazebo:
+    aircraft_sdf: ""
+    fpv_cam_sdf: ""
+
+  usb_cam_driver:
+    # Stable UVC capture link; unlike /dev/video0 it does not change when
+    # devices are re-enumerated. index0 is video capture, index1 is metadata.
+    video_device: "/dev/v4l/by-id/usb-HD_USB_Camera_HD_USB_Camera_01.00.00-video-index0"
+    image_width: 2592
+    image_height: 1944
+    framerate: 30
+    pixel_format: "mjpeg"
+    io_method: "mmap"
+    camera_name: "camera"
+    camera_frame_id: "camera"
+    output_topic: "image_raw"
+    # V4L2 MJPEG bytes published without decode/re-encode for low-bandwidth recording.
+    compressed_output_topic: "image_raw/mjpeg"
+    worker_threads: 3
+    capture_buffers: 6
+    capture_queue_size: 6
+    decoded_queue_size: 3
+    fast_upsample: true
+    rotation_angle: 180  # Clockwise: 0, 90, 180 or 270 degrees
+    statistics_period: 5.0
+
+Debug:
+  is_show_image: true
+  is_show_rgb: false
+  is_show_hsv: false
+  is_show_bbx: false
+  det_conf_threshold: 0.40
+  is_show_3D_estimation: true

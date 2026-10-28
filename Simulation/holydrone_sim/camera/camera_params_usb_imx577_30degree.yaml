@@ -1,0 +1,60 @@
+camera:
+  # Shared by real flight and simulation.
+  video_resource: 0  # /dev/video0
+  img_width: 2592
+  img_height: 1944
+  framerate: 30
+  pixel_format: "MJPG"
+
+  # Kalibr pinhole-radtan calibration at 2592x1944 (2026-07-21).
+  fx: 1493.3501756770706
+  fy: 1498.0985997459525
+  cx: 1296 #1334.8858454162312
+  cy: 972  #1012.2270147878828
+  img_f: 1495.7243877115116  # Backward-compatible average of fx and fy
+  distortion_coeffs: [-0.006852486239703594, -0.01803959980285826, -0.00019216993890026709, -0.0009434330278131636]  # k1, k2, p1, p2
+
+  # Complete camera RDF -> Body FLU rotation; this is the sole rotation
+  # extrinsic used by ROS nodes and the Gazebo model synchronizer.
+  # Camera optical-center position expressed in Body FLU [m].
+  position_body_m: [0.095, 0.0, 0.0]
+  R_cam_body: [0.0, 0.5, 0.866025404, -1.0, 0.0, 0.0, 0.0, -0.866025404, 0.5]
+  p_B_C: [0.095, 0.0, 0.0]  # Camera optical-center position in Body FLU [m].
+  q_B_C: [0.612372436, -0.353553391, 0.353553391, -0.612372436]  # Camera RDF -> Body FLU [w x y z].
+  img_distance: 20
+  time_offset: 0.0
+
+  # Optional Gazebo model overrides. Empty values use the project defaults.
+  gazebo:
+    aircraft_sdf: ""
+    fpv_cam_sdf: ""
+
+  usb_cam_driver:
+    # Stable UVC capture link; unlike /dev/video0 it does not change when
+    # devices are re-enumerated. index0 is video capture, index1 is metadata.
+    video_device: "/dev/v4l/by-id/usb-HD_USB_Camera_HD_USB_Camera_01.00.00-video-index0"
+    image_width: 2592
+    image_height: 1944
+    framerate: 30
+    pixel_format: "mjpeg"
+    io_method: "mmap"
+    camera_name: "camera"
+    camera_frame_id: "camera"
+    output_topic: "image_raw"
+    # V4L2 MJPEG bytes published without decode/re-encode for low-bandwidth recording.
+    compressed_output_topic: "image_raw/mjpeg"
+    worker_threads: 3
+    capture_buffers: 6
+    capture_queue_size: 6
+    decoded_queue_size: 3
+    fast_upsample: true
+    rotation_angle: 180  # Clockwise: 0, 90, 180 or 270 degrees
+    statistics_period: 5.0
+
+Debug:
+  is_show_image: true
+  is_show_rgb: false
+  is_show_hsv: false
+  is_show_bbx: false
+  det_conf_threshold: 0.40
+  is_show_3D_estimation: true

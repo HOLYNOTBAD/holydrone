@@ -1,0 +1,57 @@
+
+# Bridge/runtime parameters
+control_rate: 50.0
+hover_thrust: 0.30
+hover_acceleration: 10.0
+
+# Cost on states
+Q_velocity: 300  # Cost for velocity error
+Q_speed: 50  # Cost for optimized closing speed to approach intercept_speed
+Q_perception_u: 400  # Cost for normalized horizontal image-plane residual
+Q_perception_v: 300  # Cost for normalized vertical image-plane residual
+Q_image_rate_u: 200  # Cost for spherical bearing jitter about camera y
+Q_image_rate_v: 200 # Cost for spherical bearing jitter about camera x
+Q_image_rate_z: 200 # Cost for spherical bearing jitter about camera z
+Q_terminal_line: 300  # Terminal cost for distance to current UAV-target line
+
+# Cost on inputs
+R_thrust: 3.0  # Cost on thrust input
+R_roll: 30  # Cost on body-rate x
+R_pitch: 20  # Cost on body-rate y
+R_yaw: 20  # Cost on yaw rate
+R_speed_delta: 30  # Cost on closing-speed rate ds
+R_slack_u: 300  # Cost on horizontal FOV slack sv1
+R_slack_v: 1000  # Cost on vertical FOV slack sv2
+
+# Exponential scaling: W_i = W * exp(-i/N * cost_scaling).
+# cost_scaling = 0 means no scaling W_i = W.
+state_cost_exponential: 0.0  # No exponential scaling for state costs
+input_cost_exponential: 0.0  # No exponential scaling for input costs
+max_invalid_retries: 5  # Reuse last valid SO3 command this many invalid ticks.
+max_zero_control_retries: 5  # Then publish zero body-rate recovery commands before attitude hover.
+
+# Limits for inputs
+max_bodyrate_x: 3.0  # roll-rate limit [rad/s]
+max_bodyrate_y: 3.0  # pitch-rate limit [rad/s]
+max_bodyrate_z: 1.2  # yaw-rate limit [rad/s]
+min_thrust: 0.0  # collective mass-normalized thrust lower bound [m/s^2]
+max_thrust: 50.0  # collective mass-normalized thrust upper bound [m/s^2]
+
+# Extrinsics for perception-aware terms
+
+# Interception speed state
+min_intercept_speed: 1.0  # desired closing speed when horizontal LOS error is large [m/s]
+intercept_speed: 5.0  # max desired relative closing speed near centered LOS [m/s]
+los_speed_schedule_kh: 4.0  # larger values reduce closing speed faster as horizontal LOS error grows
+max_initial_intercept_speed: 4.0  # clamp inherited closing speed when entering EXEC_INTERCEPTION [m/s]
+max_delta_intercept_speed: 1.5  # max rate of optimized closing-speed state ds [m/s^2]
+min_solver_range: 1.0  # lower bound for range state used inside NMPC [m]
+nominal_target_range: 6.0  # range used in bearing-only mode when target position is unavailable [m]
+
+# Image-plane bounds for normalized projection residual and FOV constraints.
+align_los_theta_to_image_bounds: true  # compute los_theta_max from /camera/img_height and /camera/img_f
+image_bound_margin: 0.3  # same normalized image-plane margin as the NMPC FOV constraint
+los_theta_max: 0.461799  # manual fallback when align_los_theta_to_image_bounds is false [rad]
+
+# Print information such as timing to terminal
+print_info: true

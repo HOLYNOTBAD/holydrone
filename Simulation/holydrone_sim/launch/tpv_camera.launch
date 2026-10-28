@@ -1,0 +1,19 @@
+<launch>
+  <arg name="x" default="-4.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="2.0"/>
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_holydrone_tpv_camera"
+        args="-sdf -file $(find holydrone_sim)/gazebo/models/tpv_cam/tpv_cam.sdf
+              -model tpv_cam -x $(arg x) -y $(arg y) -z $(arg z)"
+        output="screen"/>
+
+  <node pkg="holydrone_sim" type="tpv_camera_follow.py"
+        name="holydrone_tpv_camera_follow" output="screen">
+    <param name="target_model" value="holydrone"/>
+    <param name="camera_model" value="tpv_cam"/>
+    <param name="offset_x" value="$(arg x)"/>
+    <param name="offset_y" value="$(arg y)"/>
+    <param name="offset_z" value="$(arg z)"/>
+  </node>
+</launch>

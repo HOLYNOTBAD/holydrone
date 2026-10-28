@@ -1,0 +1,58 @@
+# Smooth, safety-first flight profile for the 30-degree camera. Missing a
+# difficult interception is preferable to chasing high-frequency target motion.
+control_rate: 50.0
+hover_thrust: 0.30
+hover_acceleration: 10.0
+
+# State costs: prioritize centering and damp rapid image motion before closing.
+Q_velocity: 550
+Q_speed: 25
+Q_perception_u: 2800
+Q_perception_v: 950
+Q_image_rate_u: 1500
+Q_image_rate_v: 1250
+Q_image_rate_z: 1250
+Q_terminal_line: 450
+Q_terminal_vis_u: 25
+Q_terminal_vis_v: 25
+
+# Input costs.
+R_thrust: 4.0
+R_roll: 75
+R_pitch: 50
+R_yaw: 120
+R_speed_delta: 85
+R_slack_u: 2200
+R_slack_v: 2200
+
+state_cost_exponential: 0.0
+input_cost_exponential: 0.0
+max_invalid_retries: 5
+max_zero_control_retries: 5
+
+# Input limits. Pitch angle remains intentionally unconstrained; only its rate
+# is bounded. The roll angle constraint is enforced inside the NMPC horizon.
+max_bodyrate_x: 0.85
+max_bodyrate_y: 1.25
+max_bodyrate_z: 0.5
+max_roll_angle_deg: 50.0
+min_thrust: 0.0
+max_thrust: 50.0
+
+# Bearing-only closing-speed state. Larger LOS scheduling gains make the
+# aircraft slow down aggressively until the target is centered.
+min_intercept_speed: 0.8
+intercept_speed: 4.5
+los_speed_schedule_kh: 12.0
+los_speed_schedule_kv: 14.0
+max_initial_intercept_speed: 1.5
+max_delta_intercept_speed: 0.5
+min_solver_range: 1.0
+nominal_target_range: 6.0
+
+# Image-plane/FOV constraints.
+align_los_theta_to_image_bounds: true
+image_bound_margin: 0.35
+los_theta_max: 0.461799
+
+print_info: true

@@ -1,0 +1,35 @@
+camera:
+  video_resource: 0  # /dev/video0; may also be a /dev/v4l/by-id/... path
+  img_width: 640
+  img_height: 480
+  fx: 115
+  fy: 115
+  cx: 320
+  cy: 240
+  framerate: 30
+  pixel_format: "mjpeg"
+  img_f: 115       # 148 degree FOV
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]  # 畸变系数
+  R_cam_body: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0]   # 相机坐标系(RDF)到机体坐标系(FLU)的旋转矩阵
+  p_B_C: [0.095, 0.0, 0.0]
+  q_B_C: [0.5, -0.5, 0.5, -0.5]  # 相机 RDF -> 机体 FLU [w x y z]
+  img_distance: 20
+  time_offset: 0.0
+
+  usb_cam_driver:
+    video_device: "/dev/video0"
+    image_width: 640
+    image_height: 480
+    framerate: 30
+    pixel_format: "mjpeg"
+    io_method: "mmap"
+    camera_name: "camera"
+    camera_frame_id: "camera"
+
+Debug:
+  is_show_image: true  # main.cpp
+  is_show_rgb: false    # img_pub.py
+  is_show_hsv: false
+  is_show_bbx: false   # det.cpp; RViz still receives /yolo/image_annotated
+  det_conf_threshold: 0.40 # det.cpp
+  is_show_3D_estimation: true

@@ -1,0 +1,53 @@
+# 25 m/s, 30-degree SIMULATION yaw-damped speed candidate.
+# Fast profile hit one long straight trial but exceeded 53 deg body tilt.
+# Yaw damping and maneuver performance untested; NOT for real flight.
+control_rate: 50.0
+target_dropout_hold_sec: 0.15
+hover_thrust: 0.30
+hover_acceleration: 10.0
+
+Q_velocity: 550
+Q_speed: 80
+Q_perception_u: 1800
+Q_perception_v: 900
+Q_image_rate_u: 1200
+Q_image_rate_v: 1000
+Q_image_rate_z: 1000
+Q_terminal_line: 400
+Q_terminal_vis_u: 25
+Q_terminal_vis_v: 25
+
+R_thrust: 4.0
+R_roll: 75
+R_pitch: 65
+R_yaw: 110
+R_speed_delta: 55
+R_slack_u: 1500
+R_slack_v: 2000
+
+state_cost_exponential: 0.0
+input_cost_exponential: 0.0
+max_invalid_retries: 5
+max_zero_control_retries: 5
+
+max_bodyrate_x: 1.3
+max_bodyrate_y: 1.5
+max_bodyrate_z: 0.6
+max_roll_angle_deg: 50.0
+min_thrust: 0.0
+max_thrust: 50.0
+
+min_intercept_speed: 0.8
+intercept_speed: 25.0
+los_speed_schedule_kh: 5.0
+los_speed_schedule_kv: 7.0
+max_initial_intercept_speed: 3.0
+max_delta_intercept_speed: 1.8
+min_solver_range: 1.0
+nominal_target_range: 20.0
+
+align_los_theta_to_image_bounds: true
+image_bound_margin: 0.35
+los_theta_max: 0.461799
+
+print_info: true

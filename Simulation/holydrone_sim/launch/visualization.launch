@@ -1,0 +1,22 @@
+<launch>
+  <arg name="model_states_topic" default="/gazebo/model_states"/>
+  <arg name="marker_topic" default="/holydrone/mesh"/>
+  <arg name="show_camera_frustum" default="false"/>
+  <arg name="camera_param_file" default="$(find holydrone_sim)/camera/camera_params_usb_imx577_30degree.yaml"/>
+
+  <node pkg="holydrone_sim" type="uav_mesh_marker.py" name="holydrone_mesh_marker" output="screen">
+    <param name="marker_topic" value="$(arg marker_topic)"/>
+    <param name="mesh_resource" value="package://holydrone_sim/gazebo/models/holydrone/meshes/holydrone_v1.STL"/>
+    <param name="scale" value="0.01"/>
+    <param name="gazebo_model_states_topic" value="$(arg model_states_topic)"/>
+    <param name="gazebo_model_name" value="holydrone"/>
+  </node>
+
+  <node if="$(arg show_camera_frustum)" pkg="holydrone_sim"
+        type="camera_frustum_marker.py" name="holydrone_camera_frustum" output="screen">
+    <rosparam command="load" file="$(arg camera_param_file)"/>
+    <param name="marker_topic" value="/holydrone/camera_frustum"/>
+    <param name="gazebo_model_states_topic" value="$(arg model_states_topic)"/>
+    <param name="gazebo_model_name" value="holydrone"/>
+  </node>
+</launch>

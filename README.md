@@ -70,6 +70,7 @@ Open the selected assembly in `Hardware/` with **SolidWorks 2024**. Keep the fol
 | [Aircraft parts](Hardware/3dp4drone/) / [Experiment fixtures](Hardware/3dp4exp/) | Printable brackets, balloon mechanisms, and ground fixtures |
 | [BOM notes](Hardware/BOM.md) | Variant differences and component selection notes |
 | [Firmware](Firmware/) / [Params](Params/) | PX4 firmware and flight parameter snapshots |
+| [Simulation](Simulation/holydrone_sim/) | ROS package, Gazebo Classic model and PX4 SITL overlay |
 | [demo](demo/) | Photos, videos, and CAD animations |
 | [Hardware directory index](Hardware/DIRECTORIES.md) | Model and file descriptions |
 
@@ -102,3 +103,75 @@ Select the companion computer and towing accessories for your variant. Verify sp
 | 15 | CUAV C-RTK 9Ps RTK module | <img src="demo/bom/15-cuav-rtk.png" width="96" alt="CUAV C-RTK 9Ps RTK module"> | 1 | [Product](https://item.taobao.com/item.htm?id=672313744007&skuId=4841813280367) |
 
 To everyone who has helped along the way: thank you for your time, patience, and willingness to work through the challenges together. This project would not be where it is today without you.
+
+## PX4 SITL and Gazebo Classic deployment
+
+The ROS 1 package [`Simulation/holydrone_sim`](Simulation/holydrone_sim/) contains
+the Holydrone SDF, meshes, GPS, lidar, FPV camera, optional visualization tools,
+controller profiles, and a backup of the custom PX4 `22000` airframe. The
+validated environment is Ubuntu 20.04, ROS Noetic, Gazebo Classic 11 and
+PX4-Autopilot `v1.16.2` (`54f0455ffcd755534539a7cf33a09a20bf71d29d`).
+
+### 1. Install ROS and clone PX4
+
+Install ROS Noetic with `gazebo_ros`, then prepare the pinned PX4 source:
+
+```bash
+sudo apt update
+sudo apt install git git-lfs python3-rosdep ros-noetic-desktop-full \
+  ros-noetic-gazebo-ros-pkgs ros-noetic-mavros ros-noetic-mavros-extras
+
+cd ~
+git clone --recursive --branch v1.16.2 \
+  https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+bash Tools/setup/ubuntu.sh
+```
+
+Open a new terminal after the PX4 dependency installer finishes.
+
+### 2. Build the ROS package
+
+```bash
+mkdir -p ~/catkin_ws/src
+ln -s ~/holydrone/Simulation/holydrone_sim ~/catkin_ws/src/holydrone_sim
+cd ~/catkin_ws
+source /opt/ros/noetic/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+source devel/setup.bash
+```
+
+### 3. Install the PX4 airframe and build SITL plugins
+
+The installer copies the backed-up airframe into PX4, registers it in the PX4
+ROMFS build, and builds PX4 plus the Gazebo Classic plugins:
+
+```bash
+export PX4_DIR=~/PX4-Autopilot
+rosrun holydrone_sim install_px4_overlay.sh
+rosrun holydrone_sim check_install.sh
+```
+
+The installer is idempotent. Before editing `CMakeLists.txt` for the first time,
+it saves `CMakeLists.txt.pre-holydrone-sim.bak` beside the original file.
+
+### 4. Start Gazebo and make Holydrone take off
+
+Run the SITL launcher from a terminal with the catkin workspace sourced:
+
+```bash
+cd ~/catkin_ws
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+export PX4_DIR=~/PX4-Autopilot
+
+GAZEBO_GUI=1 PX4_RESET_PARAMS=1 AUTO_TAKEOFF=1 \
+  rosrun holydrone_sim run_sitl.sh
+```
+
+Gazebo starts the bundled empty world, spawns `holydrone` at ground clearance,
+starts PX4 with `PX4_SYS_AUTOSTART=22000`, arms after the estimator settles, and
+sends the PX4 takeoff command. Set `AUTO_TAKEOFF=0` to keep the vehicle on the
+ground for manual QGroundControl/MAVROS operation. Press `Ctrl-C` in the launcher
+terminal to stop the PX4 daemon, Gazebo processes, and the private ROS master.

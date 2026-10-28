@@ -1,0 +1,10 @@
+aircraft: holydrone
+
+environment:
+  PX4_MODEL_NAME: holydrone
+  PX4_SYS_AUTOSTART: 22000
+  PX4_SIM_MODEL: gazebo-classic_holydrone
+  GAZEBO_AIRCRAFT_GROUND_CLEARANCE: 0.055
+  RVIZ_UAV_MESH_RESOURCE: package://holydrone_sim/gazebo/models/holydrone/meshes/holydrone_v1.STL
+  RVIZ_UAV_MESH_SCALE: 0.01
+  RVIZ_UAV_MESH_PITCH: 0.0

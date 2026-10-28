@@ -1,0 +1,37 @@
+camera:
+  video_resource: 0  # /dev/video0; may also be a /dev/v4l/by-id/... path
+  img_width: 1920
+  img_height: 1080
+  camera_model: "pinhole"
+  distortion_model: "equidistant"
+  fx: 735.2339811566809
+  fy: 741.0966439053202
+  cx: 958.7426774989601
+  cy: 558.5449122843116
+  framerate: 30
+  pixel_format: "mjpeg"
+  img_f: 738.1653125310006  # Backward-compatible average of fx and fy
+  distortion_coeffs: [0.3509466809899255, 0.12431285297877646, -0.13083483629238207, 0.017442284212563323]  # equidistant: k1, k2, k3, k4
+  R_cam_body: [-0.006012274339812, 0.532211448225517, 0.846590117432845, -0.992685647337581, -0.105260359025417, 0.059122435570645, 0.120578016766024, -0.840042398451135, 0.528951520157788]  # 相机 RDF -> 机体/IMU FLU，标定于 2026-09-24
+  p_B_C: [0.129885433659776, -0.001113043838892, 0.027304440097400]  # 相机光心在机体/IMU坐标系中的位置 [m]
+  q_B_C: [0.595331606500226, -0.377589911321733, 0.304877186403233, -0.640356180871829]  # 相机 RDF -> 机体/IMU FLU [w x y z]
+  img_distance: 20
+  time_offset: 0.019559447385804  # t_imu = t_cam + time_offset [s]
+
+  usb_cam_driver:
+    video_device: "/dev/v4l/by-id/usb-ZWAK-230315-ZW_LRCP_F1080P-video-index0"
+    image_width: 1920
+    image_height: 1080
+    framerate: 30
+    pixel_format: "mjpeg"
+    io_method: "mmap"
+    camera_name: "camera"
+    camera_frame_id: "camera"
+
+Debug:
+  is_show_image: true  # main.cpp
+  is_show_rgb: false    # img_pub.py
+  is_show_hsv: false
+  is_show_bbx: false   # det.cpp; RViz still receives /yolo/image_annotated
+  det_conf_threshold: 0.40 # det.cpp
+  is_show_3D_estimation: true

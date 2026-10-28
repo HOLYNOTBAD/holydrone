@@ -1,0 +1,60 @@
+# Copy of simulation/isb_nmpc_sim_outdoor_10ms_0degree.yaml for real-flight selection.
+# Parameter values are copied without tuning; this copy has not been flight validated.
+# Provisional 0-degree Holydrone ISB-NMPC SIMULATION profile: 10 m/s, standard.
+# Parameter values mirror the corresponding 30-degree profile; the 0-degree camera
+# pose is supplied separately by camera_params_usb_imx577-2_0degree.yaml.
+# Not closed-loop validated at 0 degrees. Do not use for real flight.
+control_rate: 50.0
+hover_thrust: 0.30
+hover_acceleration: 10.0
+
+# Cost on states
+Q_velocity: 550
+Q_speed: 30
+Q_perception_u: 1800
+Q_perception_v: 900
+Q_image_rate_u: 1200
+Q_image_rate_v: 1000
+Q_image_rate_z: 1000
+Q_terminal_line: 400
+Q_terminal_vis_u: 25
+Q_terminal_vis_v: 25
+
+# Cost on inputs
+R_thrust: 4.0
+R_roll: 75
+R_pitch: 50
+R_yaw: 120
+R_speed_delta: 75
+R_slack_u: 1500
+R_slack_v: 2000
+
+state_cost_exponential: 0.0
+input_cost_exponential: 0.0
+max_invalid_retries: 5
+max_zero_control_retries: 5
+
+# Limits for inputs
+max_bodyrate_x: 1.0
+max_bodyrate_y: 1.3
+max_bodyrate_z: 0.5
+max_roll_angle_deg: 50.0
+min_thrust: 0.0
+max_thrust: 50.0
+
+# Interception speed state
+min_intercept_speed: 0.8
+intercept_speed: 9.5
+los_speed_schedule_kh: 8.0
+los_speed_schedule_kv: 10.0  # vertical scheduling gain; may be tuned independently from kh
+max_initial_intercept_speed: 2.0
+max_delta_intercept_speed: 0.9
+min_solver_range: 1.0
+nominal_target_range: 6.0
+
+# Image-plane bounds for normalized projection residual and FOV constraints.
+align_los_theta_to_image_bounds: true
+image_bound_margin: 0.35
+los_theta_max: 0.461799
+
+print_info: true

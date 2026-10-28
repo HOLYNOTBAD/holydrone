@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# @name Holydrone Camera Quadrotor Gazebo Classic SITL
+#
+# @type Quadrotor Wide
+#
+# @maintainer holy
+#
+
+. ${R}etc/init.d/rc.mc_defaults
+
+param set-default CA_AIRFRAME 0
+
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.10266
+param set-default CA_ROTOR0_PY 0.11073
+param set-default CA_ROTOR0_KM 0.016
+param set-default CA_ROTOR1_PX -0.09114
+param set-default CA_ROTOR1_PY -0.11073
+param set-default CA_ROTOR1_KM 0.016
+param set-default CA_ROTOR2_PX 0.10266
+param set-default CA_ROTOR2_PY -0.11073
+param set-default CA_ROTOR2_KM -0.016
+param set-default CA_ROTOR3_PX -0.09114
+param set-default CA_ROTOR3_PY 0.11073
+param set-default CA_ROTOR3_KM -0.016
+
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+
+param set-default MPC_THR_HOVER 0.24
+param set-default THR_MDL_FAC 0.59
+
+# Conservative initial gains for the smaller Holydrone inertia.
+# Increase gradually after the vehicle can take off and hover without oscillation.
+param set-default MC_ROLL_P 3.0
+param set-default MC_PITCH_P 3.0
+# Yaw is intentionally tuned more softly than roll/pitch. The small simulated
+# airframe otherwise develops a slow yaw limit cycle after aggressive turns.
+param set-default MC_YAW_P 1.2
+
+param set-default MC_ROLLRATE_P 0.08
+param set-default MC_ROLLRATE_I 0.05
+param set-default MC_ROLLRATE_D 0.001
+
+param set-default MC_PITCHRATE_P 0.08
+param set-default MC_PITCHRATE_I 0.05
+param set-default MC_PITCHRATE_D 0.001
+
+param set-default MC_YAWRATE_P 0.10
+param set-default MC_YAWRATE_I 0.02
+param set-default MC_YAWRATE_D 0.003

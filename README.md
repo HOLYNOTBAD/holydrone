@@ -1,10 +1,49 @@
-# holydrone
+<h1 align="center">Holydrone</h1>
+<p align="center"><strong>An Open 7-Inch Quadrotor Platform for Aerial Robotics Research</strong></p>
 
-Contributors include: [Li Hong](https://github.com/HOLYNOTBAD), [Linkai Liu](https://github.com/InNoPuzzLevaTion), Dingchen Zeng, Xiangyu Ren, [Chunjiang Wu]((https://github.com/wuchunjiang0129)), Yuchen Xiao, Yuehui He, Yujun Zhang, Shuli Lv, and Chen Min.
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.34789"><img src="https://img.shields.io/badge/arXiv-2610.34789-b31b1b" alt="arXiv preprint"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue" alt="GPL v3 license"></a>
+  <img src="https://img.shields.io/badge/CAD-SolidWorks_2024-e2231a" alt="SolidWorks 2024">
+  <img src="https://img.shields.io/badge/PX4-v1.16.2-48B9C7" alt="PX4 v1.16.2">
+  <img src="https://img.shields.io/badge/Frame-7--inch-22314E" alt="7-inch frame">
+</p>
 
-A Mark4 7-inch drone research platform for drone interception and low-altitude security experiments. Four variants cover ORIN NX and LubanCat 4 companion computers, static balloon towing, and pivoting balloon towing. This repository includes CAD assemblies, 3D-printable parts, PX4 firmware, parameter snapshots, and hardware demonstrations.
+<p align="center">
+  <a href="#hardware-gallery">Gallery</a> ·
+  <a href="#flight-demonstrations">Demonstrations</a> ·
+  <a href="#variants-and-cad">CAD</a> ·
+  <a href="#bill-of-materials">Bill of Materials</a> ·
+  <a href="#px4-sitl-and-gazebo-classic-deployment">Simulation</a> ·
+  <a href="#citation">Citation</a>
+</p>
 
-Contributions to the hardware and software are welcome.
+**Holydrone** is a Mark4 7-inch quadrotor research platform developed for
+vision-based interception and low-altitude safety experiments. Four variants
+support NVIDIA Jetson Orin NX and LubanCat 4 companion computers, static balloon
+towing, and pivoting balloon towing. This repository provides CAD assemblies,
+3D-printable parts, PX4 firmware, parameter snapshots, and hardware demonstrations.
+
+## Project ecosystem
+
+| Resource | Description |
+| :--- | :--- |
+| [Paper · ISB-NMPC](https://arxiv.org/abs/2610.34789) | Interception-oriented spherical-bearing NMPC and delay-compensated visual estimation |
+| [Algorithm · ISB-NMPC](https://github.com/HOLYNOTBAD/ISB-NMPC) | Perception, estimation, control, and experiment workflows used with this platform |
+| [ROS integration · holydrone_ros](https://github.com/HOLYNOTBAD/holydrone_ros) | Gazebo models, Baylands terrain, PX4 SITL, MAVROS launch files, and camera utilities |
+
+> [!NOTE]
+> We hope this platform supports further research and development toward a
+> peaceful and safe low-altitude environment. Feedback and contributions are
+> welcome; contact [hongli@buaa.edu.cn](mailto:hongli@buaa.edu.cn).
+>
+> If this repository contributes to your work, please cite
+> [our paper](#citation) and consider starring the related repositories.
+
+Contributors include: [Li Hong](https://github.com/HOLYNOTBAD),
+[Linkai Liu](https://github.com/InNoPuzzLevaTion), Dingchen Zeng, Xiangyu Ren,
+[Chunjiang Wu](https://github.com/wuchunjiang0129), Yuchen Xiao, Yuehui He,
+Yujun Zhang, Shuli Lv, and Chen Min.
 
 ## Hardware gallery
 
@@ -78,7 +117,9 @@ Some CAD component models differ from the installed hardware; see the [BOM notes
 
 ## License
 
-No repository-wide license has been specified. Third-party models remain subject to their original authors' licenses.
+This repository is released under the [GNU General Public License v3.0](LICENSE).
+Third-party assets remain subject to their respective licenses and attribution
+requirements; see the notices supplied alongside those assets.
 
 ## Bill of materials
 
@@ -175,3 +216,18 @@ starts PX4 with `PX4_SYS_AUTOSTART=22000`, arms after the estimator settles, and
 sends the PX4 takeoff command. Set `AUTO_TAKEOFF=0` to keep the vehicle on the
 ground for manual QGroundControl/MAVROS operation. Press `Ctrl-C` in the launcher
 terminal to stop the PX4 daemon, Gazebo processes, and the private ROS master.
+
+## Citation
+
+If you use Holydrone or its accompanying software in academic work, please cite:
+
+```bibtex
+@article{hong2026isbnmpc,
+  title={ISB-NMPC: Interception-Oriented Spherical-Bearing Nonlinear Model Predictive Control for Quadrotors},
+  author={Hong, Li and Liu, Linkai and Ren, Xiangyu and Lv, Shuli and Min, Chen and Wu, Chunjiang and Zhang, Yujun and Zeng, Dingchen and Quan, Quan},
+  journal={arXiv preprint arXiv:2610.34789},
+  year={2026},
+  doi={10.48550/arXiv.2610.34789},
+  url={https://arxiv.org/abs/2610.34789}
+}
+```

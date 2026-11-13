@@ -31,6 +31,9 @@ towing, and pivoting balloon towing. This repository provides CAD assemblies,
 | [Paper · ISB-NMPC](https://arxiv.org/abs/2610.34789) | Interception-oriented spherical-bearing NMPC and delay-compensated visual estimation |
 | [Algorithm · ISB-NMPC](https://github.com/HOLYNOTBAD/ISB-NMPC) | Perception, estimation, control, and experiment workflows used with this platform |
 | [ROS integration · holydrone_ros](https://github.com/HOLYNOTBAD/holydrone_ros) | Gazebo models, Baylands terrain, PX4 SITL, MAVROS launch files, and camera utilities |
+| [Rate-loop tuning · holydrone_autotune](https://github.com/HOLYNOTBAD/holydrone_autotune) | ROS 1 and MAVROS workflow for testing predefined PX4 PID candidates with repeatable body-rate pulses and offline response metrics |
+| [Calibration · holydrone_cali](https://github.com/HOLYNOTBAD/holydrone_cali) | Calibration tools for the Holydrone platform (repository under development) |
+| [System identification · holydrone_identification](https://github.com/HOLYNOTBAD/holydrone_identification) | ROS 1 workflows for first-, second-, and third-order closed-loop response identification and Gazebo physical-parameter estimation |
 
 > [!NOTE]
 > We hope this platform supports further research and development toward a
